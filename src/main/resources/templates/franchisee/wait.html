@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns:th="//www.thymeleaf.org">
+    <head>
+   	 	<meta charset="UTF-8">
+    	<title>Insert title here</title>
+    </head>
+	<body>
+		<section class="flex wait section-size">
+			<th:block th:each="dto:${order}">
+				<div  class="time-info">
+					<p th:text="${dto.orderDate}">주문시간</p>
+					
+				</div>
+				<div  class="adress-info">
+					<p th:text="${dto.name}">고객 이름</p>
+					<p th:text="${dto.uid}">uid</p>
+					<div th:each="item:${dto.orderItem}">
+						<p th:text="${item.name}"></p>
+					</div>
+					
+				</div>
+				<div class="order-btn">
+					<button>주문 접수</button>
+					<button>주문 취소</button>
+				</div>
+			</th:block>
+		</section>
+	</body>
+</html>
